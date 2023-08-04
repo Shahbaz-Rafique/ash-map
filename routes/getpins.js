@@ -6,7 +6,8 @@ router.get('/',(req,res,next)=>{
     connection.query(`SELECT * from pins`,(err,result)=>{
         if (err) throw err;
         else{
-            res.send(result);
+            const responseData = { data:result };
+            res.status(200).json(responseData);
         }
     })
 })
